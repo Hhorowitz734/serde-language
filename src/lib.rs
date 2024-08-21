@@ -3,9 +3,12 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Field {
-    pub r#Name: String,
-    pub r#Delimiter: String,
-    pub r#subfields: Option<Vec<Field>>, // Optional subfields
+    #[serde(rename = "Name")]
+    pub name: String,
+    #[serde(rename = "Delimiter")]
+    pub delim: String,
+    #[serde(rename = "Subfields")]
+    pub subfields: Option<Vec<Field>>, // Optional subfields
 }
 
 

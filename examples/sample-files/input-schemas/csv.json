@@ -1,7 +1,7 @@
 {
     "Name": "root",
     "Delimiter": ".",
-    "subfields": [
+    "Subfields": [
         {
             "Name": "child1",
             "Delimiter": ";"

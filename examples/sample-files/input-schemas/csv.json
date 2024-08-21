@@ -1,0 +1,14 @@
+{
+    "Name": "root",
+    "Delimiter": ".",
+    "subfields": [
+        {
+            "Name": "child1",
+            "Delimiter": ";"
+        },
+        {
+            "Name": "child2",
+            "Delimiter": ":"
+        }
+    ]
+}

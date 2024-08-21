@@ -1,13 +1,13 @@
-use std::fmt;
+
 use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Field {
-    
-    pub r#name: String,
-    pub r#subfields: Vec<Field>
-
+    pub r#Name: String,
+    pub r#Delimiter: String,
+    pub r#subfields: Option<Vec<Field>>, // Optional subfields
 }
+
 
 #[derive(Debug)]
 pub enum RecursiveParsingErrors {

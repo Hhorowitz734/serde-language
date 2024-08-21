@@ -1,0 +1,17 @@
+{
+    "Name": "root",
+    "Identifier": "",
+    "Delimiter": "EB 90",
+    "Subfields": [
+        {
+            "Name": "something something sensor",
+            "Identifier": "1005",
+            "Delimiter": ""
+        },
+        {
+            "Name": "something otherthing sensor",
+            "Identifier": "1009",
+            "Delimiter": ""
+        }
+    ]
+}

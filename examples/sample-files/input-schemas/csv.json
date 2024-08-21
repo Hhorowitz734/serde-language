@@ -1,13 +1,16 @@
 {
     "Name": "root",
+    "Identifier": "",
     "Delimiter": ".",
     "Subfields": [
         {
             "Name": "child1",
+            "Identifier": "EB 90",
             "Delimiter": ";"
         },
         {
             "Name": "child2",
+            "Identifier": "EB 90",
             "Delimiter": ":"
         }
     ]

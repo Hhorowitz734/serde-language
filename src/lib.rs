@@ -1,5 +1,7 @@
 
 use serde::{Serialize, Deserialize};
+use std::fs::File;
+use std::io::Read;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Field {
@@ -40,7 +42,35 @@ impl Field {
 
     }
 
+    pub fn parse_binary_file(&self, file: &mut File, depth: usize) -> std::io::Result<()> {
+
+        let mut buffer = [0; 2];
+
+        file.read_exact(&mut buffer)?;
+
+        // Format bytes as a string (in the future, this should just be a byte comparison)
+        let identifier = format!("{:02X}{:02X}", buffer[0], buffer[1]);
+
+        if identifier == self.identifier {
+            println!("{:indent$}- Found: {} (Identifier: {})", "", self.name, self.identifier, indent = depth * 2);
+            
+            if let Some(ref subfields) = self.subfields {
+                
+                for subfield in subfields {
+                    subfield.parse_binary_file(file, depth + 1)?; //Recursive call
+                }
+            }
+        } else {
+            // Here, we should just continue if we don't find the right message. It needs to be more optional
+            println!("{:indent$}- Expected: {} (Identifier: {}), but found: {}", "", self.name, self.identifier, identifier, indent = depth * 2);
+        
+        }
+
+        Ok(())
+    }
+
 }
+
 
 
 

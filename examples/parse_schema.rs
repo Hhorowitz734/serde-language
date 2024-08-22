@@ -1,3 +1,5 @@
+// examples/parse_schema.rs
+
 extern crate serdelang;
 
 use serdelang::Field;
